@@ -219,10 +219,7 @@ The ESP32 must be flashed with the firmware before installation. Use one of thes
   2. Connect your ESP32 to your computer via USB.
   3. Click **Connect**, then **Install** and select the `all-firmware.bin` file.
 
-- **Option B: Android Phone (No PC needed)**
-  You can flash from your phone using an **USB OTG adapter** and the **[ESP32 Loader](https://play.google.com/store/apps/details?id=com.bluedot.esp32loader)** app. Select the `all-firmware.bin` and flash it to the ESP32.
-
-- **Option C: PlatformIO (Developers)**
+- **Option B: PlatformIO (Developers)**
   If you are working with the source code:
   ```bash
   pio run --target upload

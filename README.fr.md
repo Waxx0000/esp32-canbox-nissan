@@ -219,10 +219,7 @@ L'ESP32 doit d'abord être programmé avec le firmware avant d'être installé. 
   2. Connectez votre ESP32 à votre ordinateur via USB.
   3. Cliquez sur **Connect**, puis **Install** et sélectionnez le fichier `all-firmware.bin`.
 
-- **Option B : Smartphone Android (Sans PC)**
-  Vous pouvez flasher depuis votre téléphone avec un **adaptateur USB OTG** et l'application **[ESP32 Loader](https://play.google.com/store/apps/details?id=com.bluedot.esp32loader)**. Sélectionnez le fichier `all-firmware.bin` et flashez-le sur l'ESP32.
-
-- **Option C : PlatformIO (Développeurs)**
+- **Option B : PlatformIO (Développeurs)**
   Si vous travaillez avec le code source :
   ```bash
   pio run --target upload
