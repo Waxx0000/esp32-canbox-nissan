@@ -206,24 +206,33 @@ The LED (GPIO 8) provides quick diagnostics without requiring a PC connection:
 
 ---
 
-## Building & Flashing
+## Installation & Setup
 
-This project uses **PlatformIO**. To build and flash:
+Setting up your ESP32 CANBox Bridge follows a simple two-step process:
 
-```bash
-# Clone the repository
-git clone https://github.com/aerodomigue/Nissan-canbus-headunit.git
-cd Nissan-canbus-headunit
+### 1. Initial Firmware Flash
+The ESP32 must be flashed with the firmware before installation. Use one of these methods:
 
-# Build
-pio run
+- **Option A: Web Browser (Recommended)**
+  Open **[web.esphome.io](https://web.esphome.io/)** in a Chrome-based browser (Chrome, Edge, Opera).
+  1. Connect your ESP32 to your computer via USB.
+  2. Click **Connect** and select your ESP32 port.
+  3. Click **Install** and upload the `.bin` file from the [Latest Releases](https://github.com/aerodomigue/Nissan-canbus-headunit/releases).
 
-# Upload to ESP32
-pio run --target upload
+- **Option B: PlatformIO (Developers)**
+  If you are working with the source code:
+  ```bash
+  # Build and upload via USB
+  pio run --target upload
+  ```
 
-# Monitor serial output
-pio device monitor
-```
+### 2. Configuration & Management
+Once flashed, connect the ESP32 to your Android head unit's USB port. All further configuration is done via the companion app:
+
+**[ESP32 CANBox Manager](https://github.com/aerodomigue/esp32-canbox-manager)** (Android App)
+- **Select Vehicle**: Load the specific `.json` config for your car.
+- **Calibrate**: Set steering wheel offsets and tank capacity.
+- **OTA Updates**: Update future firmware versions wirelessly from the app.
 
 ---
 
