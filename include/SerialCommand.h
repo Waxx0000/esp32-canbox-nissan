@@ -37,14 +37,11 @@
 // VERSION INFO
 // =============================================================================
 
-#define STRINGIFY(x) #x
-#define TOSTRING(x) STRINGIFY(x)
-
 #ifndef APP_VERSION
-  #define APP_VERSION dev
+  #define APP_VERSION "dev"
 #endif
 
-#define FIRMWARE_VERSION TOSTRING(APP_VERSION)
+#define FIRMWARE_VERSION APP_VERSION
 #define FIRMWARE_DATE    __DATE__
 
 // =============================================================================
