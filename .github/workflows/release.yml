@@ -54,7 +54,7 @@ jobs:
       - name: Check Artifacts
         run: |
           ls -R .pio/build/
-          cp .pio/build/esp32-c3-devkitm-1/firmware.bin firmware.bin
+          cp .pio/build/esp32-c3-devkitm-1/firmware.bin firmware.ota
           cp .pio/build/esp32-c3-devkitm-1/all-firmware.bin all-firmware.bin
 
       - name: Prepare Configs
@@ -69,13 +69,13 @@ jobs:
           draft: true
           generate_release_notes: true
           files: |
-            firmware.bin
+            firmware.ota
             all-firmware.bin
             vehicle_configs.zip
           body: |
             ## 📦 Installation & Upgrade
             - **First install?** Download **`all-firmware.bin`** and use [web.esphome.io](https://web.esphome.io/) or an Android OTG flasher.
-            - **OTA Update?** Use **`firmware.bin`** inside the Android companion app.
+            - **OTA Update?** Use **`firmware.ota`** inside the Android companion app.
             
             ---
         env:

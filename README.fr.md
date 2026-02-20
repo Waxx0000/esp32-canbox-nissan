@@ -235,7 +235,7 @@ Une fois flashé, branchez l'ESP32 sur un port USB de votre autoradio Android. T
 **[ESP32 CANBox Manager](https://github.com/aerodomigue/esp32-canbox-manager)** (App Android)
 - **Sélection du Véhicule** : Chargez la config `.json` correspondant à votre voiture.
 - **Calibration** : Réglez les offsets du volant ou la capacité du réservoir.
-- **Mises à jour OTA** : Mettez à jour les futures versions du firmware sans fil depuis l'app.
+- **Mises à jour OTA** : Mettez à jour les futures versions du firmware sans fil depuis l'app avec **`firmware.ota`**.
 
 ---
 

@@ -235,7 +235,7 @@ Once flashed, connect the ESP32 to your Android head unit's USB port. All furthe
 **[ESP32 CANBox Manager](https://github.com/aerodomigue/esp32-canbox-manager)** (Android App)
 - **Select Vehicle**: Load the specific `.json` config for your car.
 - **Calibrate**: Set steering wheel offsets and tank capacity.
-- **OTA Updates**: Update future firmware versions wirelessly from the app.
+- **OTA Updates**: Update future firmware versions wirelessly from the app using **`firmware.ota`**.
 
 ---
 
