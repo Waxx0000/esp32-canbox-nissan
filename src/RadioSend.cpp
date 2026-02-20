@@ -7,7 +7,8 @@
  * over UART at 38400 baud, 8N1 format.
  *
  * Protocol: Raise Toyota RAV4 2019-2020
- * Reference: RAV4_BODY_ENGINE_2018_2020.pdf
+ * Reference: RAV4_BODY_ENGINE_2018_2020.pdf (Compiled & Analyzed by Mikescotland)
+ * Source: https://forum.dudu-auto.com/u/Mikescotland
  *
  * Frame Format:
  * ┌──────┬─────────┬────────┬──────────────┬──────────┐

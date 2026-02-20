@@ -8,7 +8,7 @@
  *
  * Hardware: ESP32-C3 (or compatible) with TWAI CAN controller
  * CAN Speed: 500 kbps (Nissan standard)
- * Radio Protocol: Toyota RAV4 UART @ 38400 baud
+ * Radio Protocol: Toyota RAV4 UART @ 38400 baud (Analysis by Mikescotland)
  */
 
 #include <Arduino.h>
