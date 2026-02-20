@@ -214,17 +214,20 @@ L'installation de votre pont CAN ESP32 se déroule en deux étapes simples :
 L'ESP32 doit d'abord être programmé avec le firmware avant d'être installé. Utilisez l'une des méthodes suivantes :
 
 - **Option A : Navigateur Web (Recommandé)**
-  Ouvrez **[web.esphome.io](https://web.esphome.io/)** dans un navigateur basé sur Chrome (Chrome, Edge, Opera).
-  1. Connectez votre ESP32 à votre ordinateur via USB.
-  2. Cliquez sur **Connect** et sélectionnez le port de votre ESP32.
-  3. Cliquez sur **Install** et envoyez le fichier `.bin` téléchargé depuis la page des [Dernières Releases](https://github.com/aerodomigue/Nissan-canbus-headunit/releases).
+  Ouvrez **[web.esphome.io](https://web.esphome.io/)** dans un navigateur basé sur Chrome.
+  1. Téléchargez le fichier **`merged-firmware.bin`** depuis la page des [Dernières Releases](https://github.com/aerodomigue/Nissan-canbus-headunit/releases). Ce fichier unique contient le bootloader, les partitions et l'application.
+  2. Connectez votre ESP32 à votre ordinateur via USB.
+  3. Cliquez sur **Connect**, puis **Install** et sélectionnez le fichier `merged-firmware.bin`.
 
-- **Option B : PlatformIO (Développeurs)**
+- **Option B : Smartphone Android (Sans PC)**
+  Vous pouvez flasher depuis votre téléphone avec un **adaptateur USB OTG** et l'application **[ESP32 Loader](https://play.google.com/store/apps/details?id=com.bluedot.esp32loader)**. Sélectionnez le fichier `merged-firmware.bin` et flashez-le sur l'ESP32.
+
+- **Option C : PlatformIO (Développeurs)**
   Si vous travaillez avec le code source :
   ```bash
-  # Compiler et téléverser via USB
   pio run --target upload
   ```
+  *Note : Un fichier `merged-firmware.bin` est généré automatiquement dans `.pio/build/` après chaque compilation.*
 
 ### 2. Configuration et Pilotage
 Une fois flashé, branchez l'ESP32 sur un port USB de votre autoradio Android. Toute la configuration se fait ensuite via l'application compagnon :

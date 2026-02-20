@@ -214,17 +214,20 @@ Setting up your ESP32 CANBox Bridge follows a simple two-step process:
 The ESP32 must be flashed with the firmware before installation. Use one of these methods:
 
 - **Option A: Web Browser (Recommended)**
-  Open **[web.esphome.io](https://web.esphome.io/)** in a Chrome-based browser (Chrome, Edge, Opera).
-  1. Connect your ESP32 to your computer via USB.
-  2. Click **Connect** and select your ESP32 port.
-  3. Click **Install** and upload the `.bin` file from the [Latest Releases](https://github.com/aerodomigue/Nissan-canbus-headunit/releases).
+  Open **[web.esphome.io](https://web.esphome.io/)** in a Chrome-based browser.
+  1. Download the **`merged-firmware.bin`** from the [Latest Releases](https://github.com/aerodomigue/Nissan-canbus-headunit/releases). This single file contains the bootloader, partitions, and app.
+  2. Connect your ESP32 to your computer via USB.
+  3. Click **Connect**, then **Install** and select the `merged-firmware.bin` file.
 
-- **Option B: PlatformIO (Developers)**
+- **Option B: Android Phone (No PC needed)**
+  You can flash from your phone using an **USB OTG adapter** and the **[ESP32 Loader](https://play.google.com/store/apps/details?id=com.bluedot.esp32loader)** app. Select the `merged-firmware.bin` and flash it to the ESP32.
+
+- **Option C: PlatformIO (Developers)**
   If you are working with the source code:
   ```bash
-  # Build and upload via USB
   pio run --target upload
   ```
+  *Note: A `merged-firmware.bin` is automatically generated in `.pio/build/` after each build.*
 
 ### 2. Configuration & Management
 Once flashed, connect the ESP32 to your Android head unit's USB port. All further configuration is done via the companion app:
