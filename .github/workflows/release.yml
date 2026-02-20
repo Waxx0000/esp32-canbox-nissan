@@ -1,0 +1,67 @@
+name: Build and Draft Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Cache PlatformIO
+        uses: actions/cache@v4
+        with:
+          path: ~/.platformio
+          key: ${{ runner.os }}-platformio
+
+      - name: Install PlatformIO
+        run: |
+          python -m pip install --upgrade pip
+          pip install platformio esptool
+
+      - name: Build Project
+        run: pio run
+        env:
+          PLATFORMIO_BUILD_CACHE_DIR: .pio/cache
+
+      - name: Check Artifacts
+        run: |
+          ls -R .pio/build/
+          cp .pio/build/esp32-c3-devkitm-1/firmware.bin firmware.bin
+          cp .pio/build/esp32-c3-devkitm-1/merged-firmware.bin merged-firmware.bin
+
+      - name: Prepare Configs
+        run: |
+          cd data
+          zip -r ../vehicle_configs.zip .
+          cd ..
+
+      - name: Create Draft Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: |
+            firmware.bin
+            merged-firmware.bin
+            vehicle_configs.zip
+          body: |
+            ## Changes in this version
+            - Automatic build for tag ${{ github.ref_name }}
+            
+            ## Installation
+            - Use `merged-firmware.bin` for single-file flashing via [web.esphome.io](https://web.esphome.io/) or Android.
+            - Use `firmware.bin` if you are performing an OTA update via the app.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
