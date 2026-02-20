@@ -1,5 +1,6 @@
 import subprocess
 import os
+from datetime import datetime
 
 Import("env")
 
@@ -16,10 +17,17 @@ def get_app_version():
         return "dev"
 
 version = get_app_version()
-print(f"\n--- [BUILD INFO] APP_VERSION: {version} ---\n")
+date = datetime.now().strftime("%b %d %Y")
 
-# To pass a string to C++ via -D, we must wrap it in triple quotes: '"value"'
-# This ensures the compiler receives it as a string literal.
-env.Append(CPPDEFINES=[
-    ("APP_VERSION", f'\\"{version}\\"')
-])
+print(f"\n--- [VERSION GENERATOR] Version: {version}, Date: {date} ---\n")
+
+# Generate version.h file
+include_dir = os.path.join(env.subst("$PROJECT_DIR"), "include")
+if not os.path.exists(include_dir):
+    os.makedirs(include_dir)
+
+version_h_path = os.path.join(include_dir, "version.h")
+with open(version_h_path, "w") as f:
+    f.write("// Generated file - do not edit\n")
+    f.write(f'#define APP_VERSION "{version}"\n')
+    f.write(f'#define BUILD_DATE "{date}"\n')

@@ -18,5 +18,4 @@ Thumbs.db
 .cache/
 
 
-#python
-.venv
+include/version.h
