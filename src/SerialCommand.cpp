@@ -17,6 +17,7 @@
 #include <Update.h>
 #include <MD5Builder.h>
 #include <esp_task_wdt.h>
+#include <esp_ota_ops.h>
 #include "soc/rtc_cntl_reg.h"  // For bootloader mode
 
 // External reference to CAN processor (defined in main.cpp)
@@ -962,6 +963,9 @@ static void otaEnd() {
         otaAbort();
         return;
     }
+
+    // Mark the new firmware as valid to prevent automatic rollback
+    esp_ota_mark_app_valid_cancel_rollback();
 
     // Success!
     otaInProgress = false;
