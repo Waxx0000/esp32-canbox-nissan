@@ -17,7 +17,7 @@
 
 #define DEFAULT_STEER_OFFSET        100     // Center offset for steering
 #define DEFAULT_STEER_INVERT        true    // Invert steering direction
-#define DEFAULT_STEER_SCALE         4       // Scale percentage (4 = 0.04x)
+#define DEFAULT_STEER_SCALE         3       // Scale percentage (3 = 0.03x)
 #define DEFAULT_INDICATOR_TIMEOUT   500     // Indicator timeout in ms
 #define DEFAULT_RPM_DIVISOR         7       // RPM = raw_value / 7
 #define DEFAULT_TANK_CAPACITY       45      // Tank size in liters

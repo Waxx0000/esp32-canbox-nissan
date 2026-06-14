@@ -128,6 +128,35 @@ Pin 4/5 = Masse
 
 > **Note :** Les ports OBD-II possèdent des résistances de terminaison intégrées, donc aucune résistance supplémentaire n'est nécessaire sur le module SN65HVD230. Si votre module a une résistance 120Ω (R120), vous pouvez la laisser ou la retirer - le bus fonctionnera dans les deux cas.
 
+### Pinout Connecteur Électrochauffant (Clim) — M25
+
+L'unité de contrôle électrochauffante utilise le connecteur **M25** (type TH16FW-NH, 16 broches). Il transporte le bus CAN et peut servir de point de prise alternatif.
+
+```
+Vue frontale du connecteur :
+┌─────────────────────────────────┐
+│  1  2  3  4  5  6  7  8        │
+│  9 10 11 12 13 14 15 16        │
+└─────────────────────────────────┘
+```
+
+| Broche | Couleur fil | Description |
+| --- | --- | --- |
+| 1 | L | **CAN-H** |
+| 2 | B | Masse |
+| 3 | SB | Alimentation contact (allumage) |
+| 4 | P | Signal de réveil de l'unité électrochauffante |
+| 5 | R | Masse capteur température ambiante |
+| 9 | P | **CAN-L** |
+| 10 | Y | Alimentation batterie |
+| 12 | GR | Signal capteur température ambiante |
+| 13 | L | Signal moteur ventilation |
+| 14 | Y | Signal commande relais électrochauffant 1 |
+| 15 | LG | Signal commande relais électrochauffant 2 |
+| 16 | P | Signal commande relais électrochauffant 3 |
+
+> Les broches 6, 7, 8 et 11 ne sont pas câblées sur ce connecteur.
+
 ### À propos du Boîtier CAN d'Origine
 
 Le **boîtier CAN Raise/RZC d'origine** livré avec l'autoradio Android est **conservé en place**. Il fournit l'**alimentation 6V pour la caméra de recul** et reste nécessaire pour cette fonction.

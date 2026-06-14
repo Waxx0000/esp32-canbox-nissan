@@ -128,6 +128,35 @@ Pin 4/5 = Ground
 
 > **Note:** OBD-II ports have built-in termination resistors, so no additional resistor is needed on the SN65HVD230 module. If your module has a 120Ω resistor (R120), you can leave it or remove it - the bus will work either way.
 
+### Electroheater (A/C) Connector Pinout — M25
+
+The electroheater control unit uses connector **M25** (type TH16FW-NH, 16 pins). It carries the CAN bus and can be used as an alternative tap point.
+
+```
+Pin layout (front view):
+┌─────────────────────────────────┐
+│  1  2  3  4  5  6  7  8        │
+│  9 10 11 12 13 14 15 16        │
+└─────────────────────────────────┘
+```
+
+| Pin | Wire Color | Description |
+| --- | --- | --- |
+| 1 | L | **CAN-H** |
+| 2 | B | Ground |
+| 3 | SB | Ignition power supply |
+| 4 | P | Electroheater control unit wake-up signal |
+| 5 | R | Ambient temperature sensor ground |
+| 9 | P | **CAN-L** |
+| 10 | Y | Battery power supply |
+| 12 | GR | Ambient temperature sensor signal |
+| 13 | L | Ventilation system motor signal |
+| 14 | Y | Electroheater relay control signal 1 |
+| 15 | LG | Electroheater relay control signal 2 |
+| 16 | P | Electroheater relay control signal 3 |
+
+> Pins 6, 7, 8, 11 are not populated on this connector.
+
 ### About the Original CAN Box
 
 The **original Raise/RZC CAN box** that came with the Android head unit is **kept installed**. It provides the **6V power supply for the reverse camera** and is still needed for that purpose.
